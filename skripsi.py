@@ -376,7 +376,7 @@ elif pilihan_menu == "Prediksi Tren Penjualan":
                 })
 
             # Membuat List Periode Target Pengujian dari Des 2025 s.d Mei 2026
-            target_dates = pd.date_range(start="2025-12-01", end="2026-05-31", freq="M")
+            target_dates = pd.date_range(start="2025-12-01", end="2026-05-31", freq="ME")
             
             hasil_skenario_1 = []
             hasil_skenario_2 = []
