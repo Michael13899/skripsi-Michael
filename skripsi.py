@@ -36,7 +36,6 @@ def simpan_data_ke_excel(data_baru):
 # Panggil fungsi inisialisasi saat aplikasi pertama dimuat
 inisialisasi_excel()
 
-
 # ==========================================
 # 2. CONFIG INTERFACE STREAMLIT
 # ==========================================
@@ -358,7 +357,7 @@ elif pilihan_menu == "Prediksi Tren Penjualan":
                 })
             
             # Resample ke total penjualan Bulanan (Monthly)
-            df_monthly = df_filtered.groupby(pd.Grouper(key='Date', freq='M'))['Quantity'].sum().reset_index()
+            df_monthly = df_filtered.groupby(pd.Grouper(key='Date', freq='ME'))['Quantity'].sum().reset_index()
             df_monthly['Year'] = df_monthly['Date'].dt.year
             df_monthly['Month'] = df_monthly['Date'].dt.month
             
@@ -461,5 +460,5 @@ elif pilihan_menu == "Prediksi Tren Penjualan":
             st.plotly_chart(fig_komparasi, use_container_width=True)
             
             # Tampilkan Matriks Angka dalam Bentuk Tabel DataFrame
-            st.write("### 📝 Tabel Hasil Angka Proyeksi Skenario (Bahan Bab 4)")
+            st.write("### 📝 Tabel Hasil Angka Proyeksi Skenario")
             st.dataframe(df_output_prediksi, use_container_width=True)
